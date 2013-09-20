@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title><?= $title ?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="/bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+
+      }
+    </style>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <? if (!empty($_SESSION['email'])): ?>
+    <script>
+      window.BadgevilleAsynchInit = function() {
+
+          // Identify yourself to Badgeville by providing your public Berlin API key and
+          // site URL
+          Badgeville.extend(Badgeville.Settings, {
+              key : '7dd0cffe2efa20ed28cd8b62c13ae77c',
+              domain : '<?= $_SESSION['site_url'] ?>'
+          });
+
+          // Register the player. This tells Badgeville who should get credit for 
+          // behaviors, and whose information to display in the widgets.
+          Badgeville.setPlayer({
+              email : '<?= $_SESSION['email'] ?>',
+              display_name : '<?= $_SESSION['display_name'] ?>'
+          });
+
+          Badgeville.ready(function(){
+            Badgeville.credit('bounce');
+          });
+      };
+    </script>
+    <? endif; ?>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="/">Trivia Proof of Concept</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><a href="/users/logout">Quizzes</a></li>
+              <li><a href="/users/profile">Question</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container body-container">
+        <?= $content ?>
+    </div>
+    <!-- /container -->
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/bootstrap/js/bootstrap.js"></script>
+    <script>
+      (function() {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'http://sandbox.badgeville.com/v4/badgeville-current.js';
+          document.body.appendChild(s);
+      }());
+    </script>
+  </body>
+</html>

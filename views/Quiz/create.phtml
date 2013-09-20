@@ -1,0 +1,50 @@
+<form method="post">
+	<fieldset>
+		<legend>Create a Quiz</legend>
+		<? if (isset($error)): ?>
+		<h4 class="alert-error"><?= $error ?></h4>
+		<? endif; ?>
+		<h3>Quiz</h3>
+		<div class="row-fluid">
+        	<div class="span4">
+        		<label>Quiz Name</label>
+				<input type="text" name="name" placeholder="Your Super Quiz" \>
+				<label>Image</label>
+				<input type="text" name="image" placeholder="http://yourimage.com" \>
+				<label>Passing Score</label>
+				<input type="text" name="action" placeholder="90" \>
+				<label>Action</label>
+				<input type="text" name="action" placeholder="Action Name" \>
+				<label>Message</label>
+				<textarea  type="text" placeholder="The message to display when the user starts the quiz" name="message" \></textarea>
+				<label>Keywords</label>
+				<input type="text" name="keywords" placeholder="comma, seperated, list" \>
+        	</div>
+        	<div class="span4">
+        		<h4>Success</h4>
+				<label>Action</label>
+				<input type="text" name="success_action" placeholder="Action Name" \>
+				<label>Message</label>
+				<textarea  type="text" placeholder="The message to display when the user sucessfully completes the quiz" name="success_message" \></textarea>
+				
+				<h4>Failure</h4>
+				<label>Action</label>
+				<input type="text" name="failed_action" placeholder="Action Name" \>
+				<label>Message</label>
+				<textarea  type="text" placeholder="The message to display when the user fails to complete the quiz" name="failed_message" \></textarea>
+        	</div>
+        </div>
+		
+        <h3>Questions</h3>
+		<label>Type</label>
+		<select name="type">
+			<option value="1">Static</option>
+			<option value="2">Random</option>
+			<option value="3">Hybrid</option>
+		</select>
+		<div></div>
+
+
+		<br><button type="submit" class="btn">Save Quiz</button>
+	</fieldset>
+</form>

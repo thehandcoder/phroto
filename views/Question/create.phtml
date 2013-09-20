@@ -1,0 +1,31 @@
+<form method="post">
+  <fieldset>
+    <legend>Create a Question</legend>
+    <? if (isset($error)): ?>
+    <h4 class="alert-error"><?= $error ?></h4>
+    <? endif; ?>
+    <h3>Quiz</h3>
+    <div class="row-fluid">
+      <div class="span4">
+        <label>Question</label>
+        <input type="text" name="text" placeholder="Your Super Quiz" \>
+        <label>Correct Answer</label>
+        <input type="text" name="correct" placeholder="The correct answer" \>
+        <label>Incorrect Answer</label>
+        <input type="text" name="answer[]" placeholder="A wrong answer" \>
+        <label>Incorrect Answer</label>
+        <input type="text" name="answer[]" placeholder="A wrong answer" \>
+        <label>Incorrect Answer</label>
+        <input type="text" name="answer[]" placeholder="A wrong answer" \>
+        <br><button type="submit" class="btn">Save Question</button>
+      </div>
+      <div class="span4">
+        <label>Keywords</label>
+        <input type="text" name="keywords" placeholder="comma, seperated, list" \>
+        <label>Start Time</label>
+        <input type="text" name="start" placeholder="Your Super Quiz" \>
+        <label>End Time</label>
+        <input type="text" name="end" placeholder="Your Super Quiz" \>
+      </div>
+  </fieldset>
+</form>
